@@ -8,11 +8,14 @@ import OpenAI from "openai";
 
 export class KirhaChatTool implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'Kirha Chat Tool',
+		displayName: 'Kirha Chat',
 		name: 'kirhaChatTool',
+		icon: {
+			light: 'file:kirha-icon.svg',
+			dark: 'file:kirha-icon.svg',
+		},
 		version: 1,
-		description: 'Agent tool to access Kirha realtime AI data provider',
-		icon: { light: 'file:openAiLight.svg', dark: 'file:openAiLight.dark.svg' },
+		description: 'Use this tool to access real-time data and insights about cryptocurrencies.',
 		group: ['transform'],
 		defaults: {
 			name: 'Kirha Chat Tool',
@@ -66,12 +69,6 @@ export class KirhaChatTool implements INodeType {
 										},
 									},
 									{
-										type: 'filter',
-										properties: {
-											pass: '={{ $responseItem.active === true && $responseItem.object === "model" }}',
-										},
-									},
-									{
 										type: 'setKeyValue',
 										properties: {
 											name: '={{$responseItem.id}}',
@@ -90,7 +87,7 @@ export class KirhaChatTool implements INodeType {
 					},
 				},
 				description: 'The model which will generate the completion. <a href="https://kirha.gitbook.io/kirha-api/completion-api/models-and-limits">Learn more</a>.',
-				default: 'openai:gpt-4.1', // eslint-disable-line n8n-nodes-base/node-param-default-wrong-for-options
+				default: 'kirha:crypto', // eslint-disable-line n8n-nodes-base/node-param-default-wrong-for-options
 			},
 			{
 				displayName: 'System Prompt',
@@ -156,7 +153,7 @@ export class KirhaChatTool implements INodeType {
 
 			const openaiClient = new OpenAI({
 				apiKey: credentials.apiKey as string,
-				baseURL: "https://api.kirha.ai/chat/v1/openai/crypto",
+				baseURL: "https://api.kirha.ai/chat/v1/openai",
 			});
 
 			const response = await openaiClient.chat.completions.create({
@@ -166,7 +163,7 @@ export class KirhaChatTool implements INodeType {
 				stream: false,
 			});
 
-			returnData.push({ json: { result: response } });
+			returnData.push({ json: { result: response.choices[0].message.content } });
 		}
 
 		return [returnData];

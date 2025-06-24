@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-kirha",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Kirha.ai n8n nodes for real time data",
   "keywords": [
     "n8n-community-node-package"

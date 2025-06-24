@@ -1,20 +1,20 @@
 # n8n-nodes-kirha
 
-This is an n8n community node for the [Kirha AI](https://kirha.ai) API. It provides agentic tools to access real-time data.
+This is a n8n community node for the [Kirha AI](https://kirha.ai) API. It provides agents with access to premium private date in real-time.
+
+Check [our documentation to use the Kirha node](https://kirha.gitbook.io/kirha-api/integrations/n8n#option-1-use-kirha-as-an-agent-tool).
 
 ## Installation
 
 Follow the [installation guide in the n8n community nodes documentation](https://docs.n8n.io/integrations/community-nodes/installation).
 
 1. Go to **Settings** → **Community Nodes**
-2. Click **Install**
-3. Enter `n8n-nodes-kirha` in the *npm Package Name* input
+2. Click **Install**e *npm Package Name* input
 4. Accept the risks of using community nodes and confirm the installation
 
 ## Operations
 
 - **Kirha Chat Tool**: Agent tool to access real-time data using the Kirha API.
-
 
 ## Credentials
 

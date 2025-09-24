@@ -1,6 +1,6 @@
 # n8n-nodes-kirha
 
-This is a n8n community node for the [Kirha AI](https://kirha.ai) API. It provides agents with access to premium private date in real-time.
+This is a n8n community node for the [Kirha AI](https://kirha.com) API. It provides agents with access to premium private date in real-time.
 
 Check [our documentation to use the Kirha node](https://kirha.gitbook.io/kirha-api/integrations/n8n#option-1-use-kirha-as-an-agent-tool).
 
